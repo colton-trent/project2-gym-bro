@@ -1,0 +1,21 @@
+<%- include ('../partials/header') %>
+
+<form id="new-form" action="/workouts" method="POST">
+    <label>Add A New Exercise</label>
+    <input type="text" name="exerciseName" placeholder="Exercise Name">
+    <label>Measurement:</label>
+    <select name="measurementType">
+        <option value="Reps">Reps</option>
+        <option value="Duration">Duration</option>
+        <option value="Distance">Distance</option>
+        </select>
+        <p>Is this a weighted exercise?
+        <label for="yes">Yes</label>
+        <input type="radio" id="yes" name="weighted" value="true">
+        <label for="no">No</label>
+        <input type="radio" id="no" name="weighted" value="false" checked="checked">
+        </p>
+</form>
+
+
+<%- include ('../partials/footer') %>
