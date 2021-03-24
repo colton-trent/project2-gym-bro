@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-mongoose.connect('mongodb+srv://admin:zsazsa123@cluster0.zyypm.mongodb.net/intro-to-mongodb?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,

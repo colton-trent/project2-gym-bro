@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const port = 3050;
 require('./config/database');
+require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const workoutsRouter = require ('./routes/workouts');
