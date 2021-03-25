@@ -24,7 +24,7 @@ const exerciseSchema = new Schema({
         type: Boolean,
         default: false,
     },
-    // workouts: [workoutSchema],
+    workouts: [workoutSchema],
 }, {
     timestamps: true,
 });

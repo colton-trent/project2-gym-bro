@@ -19,9 +19,15 @@ function create(req, res) {
 });
 };
 
+function show(req, res) {
+    Exercise.findById(req.params.id, function(err, exercise) {
+        res.render('workouts/show')
+});
+}
 
 module.exports = {
     index,
+    show,
     new: newWorkout,
     create,
 }

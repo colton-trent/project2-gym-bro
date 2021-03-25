@@ -3,7 +3,7 @@
 <h2>My Workouts</h2>
 <ul>
 <% exercises.forEach(function(e) {%>
-    <li><%= e.exerciseName %></li>
+    <li><a href="/workouts/<%= e._id %>"><%= e.exerciseName %></li>
 <% }); %>
 </ul>
 <%- include ('../partials/footer') %>
