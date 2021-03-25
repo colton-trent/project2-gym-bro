@@ -21,7 +21,7 @@ function show(req, res) {
     Exercise.findById(req.params.id, function(err, exercise) {
         res.render('exercises/show', {exercise})
 });
-}
+};
 
 module.exports = {
     index,

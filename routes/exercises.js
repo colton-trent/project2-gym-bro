@@ -7,4 +7,5 @@ router.get('/new', exercisesCtrl.new);
 router.get('/:id', exercisesCtrl.show);
 router.post('/', exercisesCtrl.create);
 
+
 module.exports = router;

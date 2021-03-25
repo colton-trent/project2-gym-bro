@@ -1,9 +1,21 @@
 <%- include ('../partials/header') %>
 
 <h2>My Workouts</h2>
-<ul>
-<% exercises.forEach(function(e) {%>
-    <li><a href="/exercises/<%= e._id %>"><%= e.exerciseName %></li>
-<% }); %>
-</ul>
+
+<table>
+    <thead>
+        <tr>
+            <th>Exercise</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% exercises.forEach(function(e) { %>
+        <tr>
+            <td><a href="/journals/<%=e._id %>"><%= e.exerciseName %> </a></td>
+            <td><a href="/exercises/<%= e._id %>">New Entry</a></td>
+        </tr>
+        
+    <% }); %>
+    </tbody>
+</table>
 <%- include ('../partials/footer') %>
