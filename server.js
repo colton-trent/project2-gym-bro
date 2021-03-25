@@ -6,7 +6,8 @@ require('./config/database');
 require('dotenv').config();
 
 const indexRouter = require('./routes/index');
-const workoutsRouter = require ('./routes/workouts');
+const exercisesRouter = require('./routes/exercises');
+const workoutsRouter = require('./routes/workouts');
 
 const app = express();
 
@@ -18,7 +19,8 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
 
 app.use('/', indexRouter);
-app.use('/workouts', workoutsRouter);
+app.use('/exercises', exercisesRouter);
+app.use('/', workoutsRouter);
 
 app.listen(port, function() {
     console.log(`express is listening on port: ${port}`);

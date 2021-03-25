@@ -1,33 +1,14 @@
-const Exercise = require("../models/workout");
-
-function index(req, res) {
-    Exercise.find({}, function(err, exercises){
-        res.render('workouts/index', { exercises});
-});
-};
-
-function newWorkout(req, res) {
-    res.render('workouts/new')
-};
+const Exercise = require('../models/exercise');
 
 function create(req, res) {
-    req.body.weighted = !!req.body.weighted;
-
-    Exercise.create(req.body, function(err, exercise) {
-        if (err) return res.redirect('/workouts/new');
-    res.redirect('/workouts');
-});
+    Exercise.findById(req.params.id, function (err, exercise) {
+        exercise.workouts.push(req.body);
+        exercise.save(function(err) {
+            res.redirect(`/exercises/${exercise._id}`);
+        });
+    });
 };
 
-function show(req, res) {
-    Exercise.findById(req.params.id, function(err, exercise) {
-        res.render('workouts/show')
-});
-}
-
 module.exports = {
-    index,
-    show,
-    new: newWorkout,
     create,
-}
+};
