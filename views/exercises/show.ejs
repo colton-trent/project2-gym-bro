@@ -1,7 +1,7 @@
 <%- include ('../partials/header') %>
 
 <main>
-    <h2> <%= exercise.exerciseName %> </h2>
+    <h2> <%= exercise.exerciseName%> </h2>
     <form id="add-workout-form" action="/exercises/<%= exercise._id %>/workouts" method="POST">
         <input type="date" name="workoutDate"><br />
     <% if (exercise.weighted === true && exercise.measurementType === "Reps") { %>
@@ -19,11 +19,11 @@
         <input type="text" name="distance"><label>miles</label>
 
     <% } else if (exercise.weighted === true && exercise.measurementType === "Duration") { %>
-        <input type="text" name="weight"><label>lbs</label>
+        <input type="text" name="duration"><label>lbs</label>
         <input type="text" name="duration"><label>seconds</label>
 
     <% } else if (exercise.weighted === false && exercise.measurementType === "Duration") { %>
-        <input type="text" name="duration"><label>lbs</label>
+        <input type="text" name="duration"><label>seconds</label>
     <% }; %>
     <input type="submit" value="Add Workout">
     </form>

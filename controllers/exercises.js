@@ -2,7 +2,7 @@ const Exercise = require("../models/exercise");
 
 function index(req, res) {
     Exercise.find({}, function(err, exercises){
-        res.render('exercises/index', { exercises});
+        res.render('exercises/index',{exercises});
 });
 };
 
@@ -19,13 +19,34 @@ function create(req, res) {
 
 function show(req, res) {
     Exercise.findById(req.params.id, function(err, exercise) {
-        res.render('exercises/show', {exercise})
+        res.render('exercises/show', {
+            exercise,
+            exerciseId: req.params.id,
+        })
 });
+};
+
+function edit(req, res) {
+    Exercise.findById(req.params.id, function(err, exercise) {
+        res.render('exercises/edit', {
+            exercise,
+            exerciseId: req.params.id,
+        })
+    })
+};
+
+function update(req, res) {
+    req.body.done = false;
+    Exercise.findByIdAndUpdate(req.params.id, req.body, function(err, exercise) {
+        res.redirect(`/exercises/${exercise.id}`)
+    })
 };
 
 module.exports = {
     index,
     show,
+    edit,
+    update,
     new: newExercise,
     create,
 };

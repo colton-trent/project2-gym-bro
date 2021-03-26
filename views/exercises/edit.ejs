@@ -1,0 +1,9 @@
+<%-include ('../partials/header.ejs')%>
+
+<h2>Edit</h2>
+<form action="/exercises/<%=exercise._id%>?_method=PUT" method="POST">
+    <input type="text" name="exerciseName">
+    <input type="submit" value="Submit">
+</form>
+
+<%-include ('../partials/footer.ejs')%>

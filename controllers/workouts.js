@@ -4,7 +4,7 @@ function create(req, res) {
     Exercise.findById(req.params.id, function (err, exercise) {
         exercise.workouts.push(req.body);
         exercise.save(function(err) {
-            res.redirect(`/exercises/${exercise._id}`);
+            res.redirect(`/journals/${exercise._id}`);
         });
     });
 };

@@ -1,6 +1,6 @@
 <%- include ('../partials/header') %>
 
-<h2><%=exercise.exerciseName %></h2>
+<h2><a href="/exercises/<%=exercise._id%>/edit"><%= exercise.exerciseName %></a></h2>
 <table>
     <thead>
         <tr>
@@ -17,7 +17,6 @@
                 <td><%= w.workoutDate %></td>
                 <td><%= w.weight %>lbs.</td>
                 <td><%= w.reps %></td>
-                    <td><form action="/exercises/<%=idx%>?_method=DELETE"><button type="submit">Delete Entry</button></form></td>
             </tr>
             <% }); %>
            
@@ -32,7 +31,6 @@
                 <td><%= w.workoutDate %></td>
                 <td><%= w.weight %>lbs.</td>
                 <td><%= w.duration %>seconds</td>
-                    <td><form action="/"><button type="submit">Delete Entry</button></form></td>
             </tr>
             <% }); %>
 
@@ -42,12 +40,11 @@
         </tr>
     </thead>
     <tbody>
-        <% exercise.workouts.forEach(function(w) { %>
+        <% exercise.workouts.forEach(function(w, idx) { %>
             <tr>
                 <td><%= w.workoutDate %></td>
                 <td><%= w.weight %>lbs.</td>
                 <td><%= w.distance %>miles</td>
-                    <td><form action=""><button type="submit">Delete Entry</button></form></td>
             </tr>
             <% }); %>
 
@@ -56,11 +53,10 @@
         </tr>
     </thead>
     <tbody>
-        <% exercise.workouts.forEach(function(w) { %>
+        <% exercise.workouts.forEach(function(w, idx) { %>
             <tr>
                 <td><%= w.workoutDate %></td>
                 <td><%= w.reps %></td>
-                    <td><form action=""><button type="submit">Delete Entry</button></form></td>
             </tr>
             <% }); %>
 
@@ -69,23 +65,21 @@
             </tr>
         </thead>
         <tbody>
-            <% exercise.workouts.forEach(function(w) { %>
+            <% exercise.workouts.forEach(function(w, idx) { %>
                 <tr>
                     <td><%= w.workoutDate %></td>
                     <td><%= w.distance %>miles</td>
-                        <td><form action=""><button type="submit">Delete Entry</button></form></td>
                 </tr>
                 <% }); %>
 <% } else if (exercise.weighted === false && exercise.measurementType === "Duration") { %>
-                <td>Reps</td>
+                <td>Duration</td>
             </tr>
         </thead>
         <tbody>
-            <% exercise.workouts.forEach(function(w) { %>
+            <% exercise.workouts.forEach(function(w, idx) { %>
                 <tr>
                     <td><%= w.workoutDate %></td>
                     <td><%= w.duration %>seconds</td>
-                        <td><form action=""><button type="submit">Delete Entry</button></form></td>
                 </tr>
                 <% }); %>
                 <% }; %>
